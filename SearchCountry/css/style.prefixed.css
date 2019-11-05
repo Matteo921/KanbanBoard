@@ -15,7 +15,8 @@ body #search {
   min-width: 100px;
   height: 20px;
   margin: 20px 10px 20px;
-  background-color: #02ac46;
+  background-color: #FFF;
+  border: solid 1px transparent;
   border-radius: 2px;
   padding: 1px 10px;
   cursor: pointer;

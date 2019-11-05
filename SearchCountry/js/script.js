@@ -1,6 +1,6 @@
 'use strict'
 
-var url = 'https://restcountries.eu/rest/v1/name/';
+var urls = 'https://restcountries.eu/rest/v1/name/';
 var countriesList = document.getElementById('countries');
 
 document.getElementById('search').addEventListener('click', searchCountries);
@@ -8,7 +8,7 @@ document.getElementById('search').addEventListener('click', searchCountries);
 function searchCountries() {
     var countryName = document.getElementById('country-name').value;
     if (!countryName.length) countryName = 'Poland';
-    fetch(url + countryName)
+    fetch(urls + countryName)
         .then(function(resp) {
             return resp.json();
         })
@@ -87,7 +87,7 @@ var URLS = {
 // var transformStyleName = PerspectiveTransform.transformStyleName;
 
 function init(ref) {
-
+	console.log('bg');
     world = document.querySelector('.world');
     worldBg = document.querySelector('.world-bg');
     worldBg.style.backgroundImage = 'url(' + URLS.bg + ')';
@@ -98,24 +98,7 @@ function init(ref) {
     globeHalo.style.backgroundImage = 'url(' + URLS.halo + ')';
 
 
-    // regenerateGlobe();
-
-    // var gui = new dat.GUI();
-    // gui.add(config, 'lat', -90, 90).listen();
-    // gui.add(config, 'lng', -180, 180).listen();
-    // gui.add(config, 'isHaloVisible');
-    // gui.add(config, 'isPoleVisible');
-    // gui.add(config, 'autoSpin');
-    // gui.add(config, 'goToHongKong');
-    // gui.add(config, 'zoom', 0, 1).listen();
-
-    // stats = new Stats();
-    // stats.domElement.style.position = 'absolute';
-    // stats.domElement.style.left = 0;
-    // // stats.domElement.style.top = 0;
-    // document.body.appendChild(stats.domElement);
-
-    // events
+    events
     world.ondragstart = function() {
         return false;
     };
@@ -126,7 +109,7 @@ function init(ref) {
     world.addEventListener('touchmove', touchPass(onMouseMove));
     world.addEventListener('touchend', touchPass(onMouseUp));
 
-    // loop();
+    loop();
 }
 
 function touchPass(func) {
@@ -395,3 +378,5 @@ function expand(v1, v2) {
 }
 
 init();
+
+//Coś nie poszło najlepiej podpięcie globusa ;( 
